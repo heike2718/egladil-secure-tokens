@@ -1,6 +1,7 @@
 package de.egladil.web.egladil_secure_tokens;
 
 import java.security.SecureRandom;
+import java.util.Base64;
 import java.util.HexFormat;
 
 /**
@@ -32,6 +33,9 @@ public class SecureRandomGenerator {
 
         byte[] randomValue = new byte[numberOfBytes];
         secureRandom.nextBytes(randomValue);
+
+        System.out.println(">>>>> numberOfBytes=" + numberOfBytes + " | " + Base64.getEncoder().encodeToString(randomValue) + " |<<<<<");
+
         return HEX_FORMAT.formatHex(randomValue);
     }
 

@@ -50,8 +50,9 @@ public class SecureRandomGeneratorTest {
         SecureRandom mockRandom = mock(SecureRandom.class);
         SecureRandomGenerator generator = new SecureRandomGenerator(mockRandom);
 
-        generator.generateSecureRandomHex(64);
-        verify(mockRandom).nextBytes(any());
+      generator.generateSecureRandomHex(64);
+
+      verify(mockRandom).nextBytes(any());
     }
 
     @Test
@@ -71,6 +72,4 @@ public class SecureRandomGeneratorTest {
         assertTrue(generatedToken.matches("[0-9a-f]{64}"));
 
     }
-
-
 }
